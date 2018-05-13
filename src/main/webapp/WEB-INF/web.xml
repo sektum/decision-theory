@@ -32,6 +32,15 @@
         <servlet-name>CriteriaServlet</servlet-name>
         <url-pattern>/criteria</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>PersonsServlet</servlet-name>
+        <servlet-class>web.PersonsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PersonsServlet</servlet-name>
+        <url-pattern>/persons</url-pattern>
+    </servlet-mapping>
 
     <jsp-config>
         <jsp-property-group>

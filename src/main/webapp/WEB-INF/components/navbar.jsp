@@ -11,6 +11,9 @@
             <li class="nav-item _criteria-li">
                 <a class="nav-link" href="/criteria">Критерии</a>
             </li>
+            <li class="nav-item _persons-li">
+                <a class="nav-link" href="/persons">Личности</a>
+            </li>
         </ul>
     </div>
 </nav>
