@@ -1,8 +1,7 @@
 <%@ include file="/WEB-INF/utils/pageMeta.jsp" %>
 <html>
 <head>
-    <%@ include file="/WEB-INF/utils/meta.jsp" %>
-    <%@ include file="/WEB-INF/utils/styles.jsp" %>
+    <%@ include file="/WEB-INF/utils/head.jsp" %>
     <title>Теория игр и принятия решений</title>
 </head>
 <div>
@@ -41,6 +40,6 @@
         </div>
     </div>
 </div>
-<%@ include file="/WEB-INF/utils/scripts.jsp" %>
+<%@ include file="/WEB-INF/utils/footer.jsp" %>
 </body>
 </html>

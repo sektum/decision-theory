@@ -5,7 +5,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item">
+            <li class="nav-item _alternative-li">
                 <a class="nav-link" href="/alternatives">Альтернативы <span class="sr-only">(current)</span></a>
             </li>
         </ul>

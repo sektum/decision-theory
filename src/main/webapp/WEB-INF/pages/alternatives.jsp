@@ -2,8 +2,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <%@ include file="/WEB-INF/utils/meta.jsp" %>
-    <%@ include file="/WEB-INF/utils/styles.jsp" %>
+    <%@ include file="/WEB-INF/utils/head.jsp" %>
     <title>Hello, world!</title>
 </head>
 <body>
@@ -27,6 +26,6 @@
         </div>
     </div>
 </div>
-<%@ include file="/WEB-INF/utils/scripts.jsp" %>
+<%@ include file="/WEB-INF/utils/footer.jsp" %>
 </body>
 </html>
