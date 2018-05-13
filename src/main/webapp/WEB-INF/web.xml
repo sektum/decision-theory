@@ -5,14 +5,16 @@
          version="3.0"
          metadata-complete="true">
     <display-name>Titap Application</display-name>
+
     <servlet>
-        <servlet-name>Test</servlet-name>
-        <servlet-class>web.TestServlet</servlet-class>
+        <servlet-name>Alternatives</servlet-name>
+        <servlet-class>web.AlternativesServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Test</servlet-name>
-        <url-pattern>/</url-pattern>
+        <servlet-name>Alternatives</servlet-name>
+        <url-pattern>/alternatives</url-pattern>
     </servlet-mapping>
+
     <jsp-config>
         <jsp-property-group>
             <url-pattern>*.jsp</url-pattern>

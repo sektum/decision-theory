@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class TestServlet extends HttpServlet {
+public class AlternativesServlet extends HttpServlet {
     private AlternativeDao alternativeDao = new InMemoryAlternativeDao();
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

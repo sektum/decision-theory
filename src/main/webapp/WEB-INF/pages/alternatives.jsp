@@ -1,4 +1,4 @@
-<%@include file="/WEB-INF/utils/pageMeta.jsp"%>
+<%@include file="/WEB-INF/utils/pageMeta.jsp" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,19 +7,26 @@
     <title>Hello, world!</title>
 </head>
 <body>
-<table>
-    <thead>
-    <tr>
-        <th>Название альтернативы</th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach items="${alternatives}" var="alternative">
-        <tr>
-            <td>${alternative.name}</td>
-        </tr>
-    </c:forEach></tbody>
-</table>
+<%@include file="/WEB-INF/components/nav.jsp"%>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Название альтернативы</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${alternatives}" var="alternative">
+                    <tr>
+                        <td>${alternative.name}</td>
+                    </tr>
+                </c:forEach></tbody>
+            </table>
+        </div>
+    </div>
+</div>
 <%@ include file="/WEB-INF/utils/scripts.jsp" %>
 </body>
 </html>
