@@ -1,7 +1,7 @@
 package entities;
 
 public enum ScaleType {
-    ORDINAL("Ранговая"), INTERVAL("Интервальная"), RATIO("Балльная"), NOMINAL("Номинальная");
+    ORDINAL("Порядковая шкала"), INTERVAL("Интервальная"), RATIO("Абсолютная шкала"), NOMINAL("Шкала наименований");
 
     private String value;
 
