@@ -6,7 +6,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item _alternative-li">
-                <a class="nav-link" href="/alternatives">Альтернативы <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/alternatives">Альтернативы</a>
+            </li>
+            <li class="nav-item _criteria-li">
+                <a class="nav-link" href="/criteria">Критерии</a>
             </li>
         </ul>
     </div>

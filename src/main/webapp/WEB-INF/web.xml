@@ -16,12 +16,21 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>Alternatives</servlet-name>
+        <servlet-name>AlternativesServlet</servlet-name>
         <servlet-class>web.AlternativesServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Alternatives</servlet-name>
+        <servlet-name>AlternativesServlet</servlet-name>
         <url-pattern>/alternatives</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CriteriaServlet</servlet-name>
+        <servlet-class>web.CriteriaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CriteriaServlet</servlet-name>
+        <url-pattern>/criteria</url-pattern>
     </servlet-mapping>
 
     <jsp-config>
