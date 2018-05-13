@@ -1,6 +1,6 @@
-package entities;
+package dao;
 
-import dao.AlternativeDao;
+import entities.Alternative;
 
 import java.util.Arrays;
 import java.util.List;

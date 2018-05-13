@@ -2,7 +2,7 @@ package web;
 
 import dao.AlternativeDao;
 import entities.Alternative;
-import entities.InMemoryAlternativeDao;
+import dao.InMemoryAlternativeDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
