@@ -6,7 +6,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class Alternative {
     @Getter
-    private long id;
+    private int id;
     @Getter
     private String name;
 }
