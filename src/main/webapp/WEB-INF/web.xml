@@ -5,6 +5,15 @@
          version="3.0"
          metadata-complete="true">
     <display-name>Titap Application</display-name>
+    
+    <servlet>
+        <servlet-name>WelcomeServlet</servlet-name>
+        <servlet-class>web.WelcomeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WelcomeServlet</servlet-name>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>Alternatives</servlet-name>

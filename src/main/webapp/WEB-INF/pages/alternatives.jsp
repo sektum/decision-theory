@@ -7,7 +7,7 @@
     <title>Hello, world!</title>
 </head>
 <body>
-<%@include file="/WEB-INF/components/nav.jsp"%>
+<%@include file="/WEB-INF/components/navbar.jsp"%>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-6">

@@ -1,3 +1,39 @@
 .my-navbar {
     margin-bottom: 20px;
 }
+
+.title {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.center-line {
+    text-align: center;
+    margin: 0;
+}
+
+.title__subject {
+    order: 1;
+}
+
+.title__variant {
+    order: 2;
+    margin-top: 50px;
+}
+
+.title__persons {
+    width: 50%;
+    align-self: flex-end;
+    margin-top: 100px;
+    order: 3;
+}
+
+.title__person {
+    margin-bottom: 20px;
+}
+
+.person {
+    display: flex;
+    flex-direction: column;
+}
