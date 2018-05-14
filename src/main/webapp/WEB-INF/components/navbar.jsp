@@ -14,6 +14,9 @@
             <li class="nav-item _persons-li">
                 <a class="nav-link" href="/persons">Личности</a>
             </li>
+            <li class="nav-item _marks-li">
+                <a class="nav-link" href="/marks">Оценки</a>
+            </li>
         </ul>
     </div>
 </nav>

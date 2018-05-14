@@ -2,6 +2,9 @@ package entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
+
+import java.util.List;
 
 @AllArgsConstructor
 public class Criterion {
@@ -19,4 +22,7 @@ public class Criterion {
     private String unit;
     @Getter
     private ScaleType scale;
+    @Getter
+    @Setter
+    private Iterable<Mark> marks;
 }

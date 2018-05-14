@@ -5,7 +5,7 @@
          version="3.0"
          metadata-complete="true">
     <display-name>Titap Application</display-name>
-    
+
     <servlet>
         <servlet-name>WelcomeServlet</servlet-name>
         <servlet-class>web.WelcomeServlet</servlet-class>
@@ -40,6 +40,15 @@
     <servlet-mapping>
         <servlet-name>PersonsServlet</servlet-name>
         <url-pattern>/persons</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MarksServlet</servlet-name>
+        <servlet-class>web.MarksServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MarksServlet</servlet-name>
+        <url-pattern>/marks</url-pattern>
     </servlet-mapping>
 
     <jsp-config>

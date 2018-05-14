@@ -10,6 +10,10 @@ else if (path == '/persons') {
     highlight($('._persons-li'));
 }
 
+else if (path == '/marks') {
+    highlight($('._marks-li'));
+}
+
 function highlight($li)
 {
     $li.addClass('active');
