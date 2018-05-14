@@ -6,7 +6,7 @@ import lombok.Getter;
 import java.util.Map;
 
 @AllArgsConstructor
-public class Vector {
+public class VectorDto {
     @Getter
     private String altName;
     @Getter
