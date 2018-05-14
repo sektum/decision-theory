@@ -50,6 +50,15 @@
         <servlet-name>MarksServlet</servlet-name>
         <url-pattern>/marks</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>VectorServlet</servlet-name>
+        <servlet-class>web.VectorServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VectorServlet</servlet-name>
+        <url-pattern>/vectors</url-pattern>
+    </servlet-mapping>
 
     <jsp-config>
         <jsp-property-group>

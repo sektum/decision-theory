@@ -17,6 +17,9 @@
             <li class="nav-item _marks-li">
                 <a class="nav-link" href="/marks">Оценки</a>
             </li>
+            <li class="nav-item _vectors-li">
+                <a class="nav-link" href="/vectors">Векторы</a>
+            </li>
         </ul>
     </div>
 </nav>

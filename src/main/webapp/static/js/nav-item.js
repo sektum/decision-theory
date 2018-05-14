@@ -14,6 +14,10 @@ else if (path == '/marks') {
     highlight($('._marks-li'));
 }
 
+else if (path == '/vectors') {
+    highlight($('._vectors-li'));
+}
+
 function highlight($li)
 {
     $li.addClass('active');

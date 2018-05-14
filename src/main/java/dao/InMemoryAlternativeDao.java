@@ -16,4 +16,9 @@ public class InMemoryAlternativeDao implements AlternativeDao {
     public Iterable<Alternative> findAll() {
         return ALTERNATIVES;
     }
+
+    @Override
+    public Alternative findById(long id) {
+        return ALTERNATIVES.stream().filter(alt -> alt.getId() == id).findFirst().orElse(null);
+    }
 }

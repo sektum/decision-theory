@@ -21,4 +21,9 @@ public class InMemoryCriterionDao implements CriterionDao {
     public Iterable<Criterion> findAll() {
         return CRITERIA;
     }
+
+    @Override
+    public Criterion findById(long critId) {
+        return CRITERIA.stream().filter(crit -> crit.getId() == critId).findFirst().orElse(null);
+    }
 }
