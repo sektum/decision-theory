@@ -7,7 +7,7 @@ create table Alternative(
 
 drop table if exists lpr;
 create table lpr (
-  idLPR bigint(20) not null primary key,
+  idLPR smallint not null primary key,
   LName varchar(255) not null,
   LRange smallint not null
 );
@@ -33,4 +33,24 @@ create table Mark (
   NumMark int8 not null,
   NormMark int8 not null,
   FOREIGN KEY (IdCrit) REFERENCES Criterion(IdCrit)
+);
+
+drop table if exists Vector;
+create table Vector (
+  idVect bigint(20) not null primary key ,
+  idAlt bigint(20) not null ,
+  idMark int8 not null ,
+  FOREIGN KEY (idAlt) REFERENCES Alternative(idAlt),
+  FOREIGN KEY (idMark) REFERENCES Mark(IdMark)
+);
+
+drop table if exists Result;
+create table Result (
+  idRes smallint not null primary key ,
+  idLpr smallint not null ,
+  idAlt smallint not null ,
+  Range smallint not null ,
+  AWeight smallint not null ,
+  foreign key (idLpr) references lpr(idLPR),
+  foreign key (idAlt) references Alternative(idAlt)
 );
