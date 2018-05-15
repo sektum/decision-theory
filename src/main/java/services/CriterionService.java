@@ -1,15 +1,14 @@
 package services;
 
 import dao.CriterionDao;
-import dao.inmemory.InMemoryCriterionDao;
-import dao.inmemory.InMemoryMarkDao;
 import dao.MarkDao;
 import dao.jdbc.JdbcCriterionDao;
+import dao.jdbc.JdbcMarkDao;
 import entities.Criterion;
 
 public class CriterionService {
     private CriterionDao criterionDao = new JdbcCriterionDao();
-    private MarkDao markDao = new InMemoryMarkDao();
+    private MarkDao markDao = new JdbcMarkDao();
 
     public Iterable<Criterion> findAll()
     {

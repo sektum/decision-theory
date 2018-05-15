@@ -1,10 +1,10 @@
 package services;
 
 import dao.*;
-import dao.inmemory.InMemoryAlternativeDao;
-import dao.inmemory.InMemoryCriterionDao;
-import dao.inmemory.InMemoryMarkDao;
 import dao.inmemory.InMemoryVectorDao;
+import dao.jdbc.JdbcAlternativeDao;
+import dao.jdbc.JdbcCriterionDao;
+import dao.jdbc.JdbcMarkDao;
 import dto.VectorDto;
 import entities.Criterion;
 import entities.Mark;
@@ -17,9 +17,9 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 public class VectorService {
-    private AlternativeDao alternativeDao = new InMemoryAlternativeDao();
-    private CriterionDao criterionDao = new InMemoryCriterionDao();
-    private MarkDao markDao = new InMemoryMarkDao();
+    private AlternativeDao alternativeDao = new JdbcAlternativeDao();
+    private CriterionDao criterionDao = new JdbcCriterionDao();
+    private MarkDao markDao = new JdbcMarkDao();
     private VectorDao vectorDao = new InMemoryVectorDao();
 
     public Iterable<VectorDto> findAll()
