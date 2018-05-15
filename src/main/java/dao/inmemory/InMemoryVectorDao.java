@@ -1,4 +1,7 @@
-package dao;
+package dao.inmemory;
+
+import dao.VectorDao;
+import entities.Vector;
 
 import java.util.Arrays;
 import java.util.List;

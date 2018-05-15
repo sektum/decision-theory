@@ -8,7 +8,7 @@ import lombok.ToString;
 @ToString
 public class Alternative {
     @Getter
-    private int id;
+    private long id;
     @Getter
     private String name;
 }

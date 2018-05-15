@@ -1,8 +1,8 @@
 package services;
 
 import dao.CriterionDao;
-import dao.InMemoryCriterionDao;
-import dao.InMemoryMarkDao;
+import dao.inmemory.InMemoryCriterionDao;
+import dao.inmemory.InMemoryMarkDao;
 import dao.MarkDao;
 import entities.Criterion;
 

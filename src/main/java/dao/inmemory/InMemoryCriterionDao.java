@@ -1,5 +1,6 @@
-package dao;
+package dao.inmemory;
 
+import dao.CriterionDao;
 import entities.Criterion;
 import entities.CriterionType;
 import entities.OptimalType;

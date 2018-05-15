@@ -1,6 +1,6 @@
 package web;
 
-import dao.InMemoryPersonDao;
+import dao.inmemory.InMemoryPersonDao;
 import dao.PersonDao;
 
 import javax.servlet.ServletException;

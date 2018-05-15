@@ -1,9 +1,14 @@
 package services;
 
 import dao.*;
+import dao.inmemory.InMemoryAlternativeDao;
+import dao.inmemory.InMemoryCriterionDao;
+import dao.inmemory.InMemoryMarkDao;
+import dao.inmemory.InMemoryVectorDao;
 import dto.VectorDto;
 import entities.Criterion;
 import entities.Mark;
+import entities.Vector;
 
 import java.util.HashMap;
 import java.util.List;
@@ -22,7 +27,7 @@ public class VectorService {
         Iterable<Vector> vectors = vectorDao.findAll();
         Map<Long, List<Vector>> vectorsByAltId = StreamSupport.stream(vectors.spliterator(), false)
                 .collect(Collectors.groupingBy(
-                        dao.Vector::getAltId, Collectors.toList()
+                        Vector::getAltId, Collectors.toList()
                 ));
 
         return vectorsByAltId.entrySet().stream()

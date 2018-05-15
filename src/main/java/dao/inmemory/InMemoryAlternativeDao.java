@@ -1,5 +1,6 @@
-package dao;
+package dao.inmemory;
 
+import dao.AlternativeDao;
 import entities.Alternative;
 
 import java.util.Arrays;

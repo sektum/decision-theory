@@ -1,5 +1,6 @@
-package dao;
+package dao.inmemory;
 
+import dao.MarkDao;
 import entities.Mark;
 
 import java.util.Arrays;
