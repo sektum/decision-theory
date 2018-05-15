@@ -15,13 +15,13 @@ public class Criterion {
     @Getter
     private int weight;
     @Getter
-    private CriterionType type;
+    private String type;
     @Getter
-    private OptimalType optimalType;
+    private String optimalType;
     @Getter
     private String unit;
     @Getter
-    private ScaleType scale;
+    private String scale;
     @Getter
     @Setter
     private Iterable<Mark> marks;

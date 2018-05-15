@@ -22,10 +22,10 @@
                 <c:forEach items="${criteria}" var="criterion">
                     <tr>
                         <td>${criterion.name}</td>
-                        <td>${criterion.type.value}</td>
-                        <td>${criterion.optimalType.value}</td>
+                        <td>${criterion.type}</td>
+                        <td>${criterion.optimalType}</td>
                         <td>${criterion.unit}</td>
-                        <td>${criterion.scale.value}</td>
+                        <td>${criterion.scale}</td>
                     </tr>
                 </c:forEach>
                 </tbody>
