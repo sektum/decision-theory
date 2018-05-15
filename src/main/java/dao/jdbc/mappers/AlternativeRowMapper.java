@@ -1,4 +1,4 @@
-package dao.jdbc;
+package dao.jdbc.mappers;
 
 import entities.Alternative;
 

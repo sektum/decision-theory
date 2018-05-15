@@ -1,6 +1,8 @@
 package dao.jdbc;
 
 import dao.AlternativeDao;
+import dao.jdbc.mappers.AlternativeRowMapper;
+import dao.jdbc.mappers.RowMapper;
 import entities.Alternative;
 
 import java.sql.*;
