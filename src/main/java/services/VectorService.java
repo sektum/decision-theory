@@ -1,10 +1,10 @@
 package services;
 
 import dao.*;
-import dao.inmemory.InMemoryVectorDao;
 import dao.jdbc.JdbcAlternativeDao;
 import dao.jdbc.JdbcCriterionDao;
 import dao.jdbc.JdbcMarkDao;
+import dao.jdbc.JdbcVectorDao;
 import dto.VectorDto;
 import entities.Criterion;
 import entities.Mark;
@@ -20,7 +20,7 @@ public class VectorService {
     private AlternativeDao alternativeDao = new JdbcAlternativeDao();
     private CriterionDao criterionDao = new JdbcCriterionDao();
     private MarkDao markDao = new JdbcMarkDao();
-    private VectorDao vectorDao = new InMemoryVectorDao();
+    private VectorDao vectorDao = new JdbcVectorDao();
 
     public Iterable<VectorDto> findAll()
     {
