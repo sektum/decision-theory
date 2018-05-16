@@ -32,7 +32,7 @@ create table Mark (
   MRange int8 not null,
   NumMark int8 not null,
   NormMark int8 not null,
-  FOREIGN KEY (IdCrit) REFERENCES Criterion(IdCrit)
+  FOREIGN KEY (IdCrit) REFERENCES Criterion(IdCrit) on delete cascade
 );
 
 drop table if exists Vector;
@@ -40,8 +40,8 @@ create table Vector (
   idVect bigint(20) not null primary key ,
   idAlt bigint(20) not null ,
   idMark int8 not null ,
-  FOREIGN KEY (idAlt) REFERENCES Alternative(idAlt),
-  FOREIGN KEY (idMark) REFERENCES Mark(IdMark)
+  FOREIGN KEY (idAlt) REFERENCES Alternative(idAlt) on delete cascade ,
+  FOREIGN KEY (idMark) REFERENCES Mark(IdMark) on delete cascade
 );
 
 drop table if exists Result;
