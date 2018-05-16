@@ -48,7 +48,7 @@ public class JdbcMarkDao implements MarkDao {
         ) {
             stmt.setLong(1, markId);
             ResultSet rs = stmt.executeQuery();
-
+            rs.next();
             return markRowMapper.map(rs, 1);
         }
         catch (SQLException e)

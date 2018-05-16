@@ -39,10 +39,11 @@ public class JdbcAlternativeDao implements AlternativeDao {
         String query = "select * from Alternative where idAlt = ?";
         try (
                 Connection conn = connectionHolder.getConnection();
-                Statement stmt = conn.prepareStatement(query)
+                PreparedStatement stmt = conn.prepareStatement(query)
         ) {
-            ((PreparedStatement) stmt).setLong(1, id);
-            ResultSet rs = ((PreparedStatement) stmt).executeQuery();
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
             return alternativeRowMapper.map(rs, 1);
         } catch (SQLException e) {
             throw new RuntimeException(e);

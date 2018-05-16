@@ -43,6 +43,7 @@ public class JdbcCriterionDao implements CriterionDao {
                 ) {
             stmt.setLong(1, critId);
             ResultSet rs = stmt.executeQuery();
+            rs.next();
             return criterionRowMapper.map(rs, 1);
         } catch (SQLException e) {
             throw new RuntimeException(e);
