@@ -2,3 +2,4 @@ target/
 titapmaven.iml
 .idea/
 *.db
+.DS_Store
