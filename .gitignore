@@ -2,4 +2,7 @@ target/
 titapmaven.iml
 .idea/
 *.db
+*.aux
+*.pdf
+*.log
 .DS_Store
