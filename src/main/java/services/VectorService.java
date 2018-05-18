@@ -1,6 +1,9 @@
 package services;
 
-import dao.*;
+import dao.AlternativeDao;
+import dao.CriterionDao;
+import dao.MarkDao;
+import dao.VectorDao;
 import dao.jdbc.JdbcAlternativeDao;
 import dao.jdbc.JdbcCriterionDao;
 import dao.jdbc.JdbcMarkDao;
@@ -22,8 +25,7 @@ public class VectorService {
     private MarkDao markDao = new JdbcMarkDao();
     private VectorDao vectorDao = new JdbcVectorDao();
 
-    public Iterable<VectorDto> findAll()
-    {
+    public Iterable<VectorDto> findAll(){
         Iterable<Vector> vectors = vectorDao.findAll();
         Map<Long, List<Vector>> vectorsByAltId = StreamSupport.stream(vectors.spliterator(), false)
                 .collect(Collectors.groupingBy(

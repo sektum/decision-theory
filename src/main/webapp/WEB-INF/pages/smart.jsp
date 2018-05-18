@@ -2,25 +2,23 @@
 <html>
 <head>
     <%@include file="/WEB-INF/utils/head.jsp" %>
-    <title>Векторы</title>
+    <title>Smart выбор</title>
 </head>
 <body>
 <%@include file="/WEB-INF/components/navbar.jsp" %>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-8">
-            <c:forEach items="${vectors}" var="vector">
+            <c:forEach items="${smartpairs}" var="smartpairs">
+                <caption>${smartpairs.altName}</caption>
                 <table class="table">
                     <tbody>
-                    <c:forEach items="${vector.marks}" var="mark">
-                        <tr>
-                            <td>${mark.key}</td>
-                            <td>${mark.value}</td>
-                        </tr>
-                    </c:forEach>
+                    <!--XZ-->
                     </tbody>
-                    <caption>${vector.altName}</caption>
                 </table>
+                <input type="submit" name="Equals" value="Equals">
+                <input type="submit" name="Choose1" value="Choose">
+                <input type="submit" name="Choose2" value="Choose">
             </c:forEach>
         </div>
     </div>

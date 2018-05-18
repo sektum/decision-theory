@@ -27,7 +27,6 @@ public class JdbcVectorDao implements VectorDao {
             {
                 vectors.add(vectorRowMapper.map(rs, 0));
             }
-
             return vectors;
         } catch (SQLException e) {
             throw new RuntimeException(e);

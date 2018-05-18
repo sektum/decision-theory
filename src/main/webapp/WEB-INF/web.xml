@@ -59,6 +59,14 @@
         <servlet-name>VectorServlet</servlet-name>
         <url-pattern>/vectors</url-pattern>
     </servlet-mapping>
+    <servlet>
+    <servlet-name>SmartServlet</servlet-name>
+    <servlet-class>web.SmartServlet</servlet-class>
+</servlet>
+    <servlet-mapping>
+        <servlet-name>SmartServlet</servlet-name>
+        <url-pattern>/smart</url-pattern>
+    </servlet-mapping>
 
     <jsp-config>
         <jsp-property-group>

@@ -1,6 +1,7 @@
 package dao.jdbc.mappers;
 
-import entities.*;
+import entities.Criterion;
+import entities.Mark;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
