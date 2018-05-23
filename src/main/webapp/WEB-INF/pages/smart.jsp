@@ -11,7 +11,7 @@
             <table class="table">
                 <c:forEach begin="0" end="13" varStatus="loop">
                     <tbody>
-                    <c:forEach items="${smartpairs.get(loop.index).marks}" var="mark">
+                    <c:forEach items="${smartPairs.get(loop.index).marks}" var="mark">
                         <tr>
                             <td>${mark.key}</td>
                             <td>${mark.value}</td>
