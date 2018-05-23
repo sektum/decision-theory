@@ -1,23 +1,34 @@
 package processes;
 
 import dto.VectorDto;
+import org.apache.commons.lang3.tuple.Pair;
 import services.VectorService;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SmartProcess {
-    private VectorService vectorService = new VectorService();
+    private VectorService vectorService;
 
-    public List<VectorDto> getPairs(){
-        List<VectorDto> result = new ArrayList<>();
-        List<VectorDto> temp = vectorService.findAll();
-        for (int i = 0; i < temp.size() - 1; i++){
-            result.add(temp.get(i));
-            for (int j = i + 1; j < temp.size(); j ++){
-                result.add(temp.get(j));
+    public SmartProcess(VectorService vectorService)
+    {
+        this.vectorService = vectorService;
+    }
+
+    public SmartProcess()
+    {
+        this(new VectorService());
+    }
+
+    public List<Pair<VectorDto, VectorDto>> getPairs(){
+        List<Pair<VectorDto, VectorDto>> result = new ArrayList<>();
+        List<VectorDto> all = vectorService.findAll();
+        for (int i = 0; i < all.size() - 1; i++){
+            for (int j = i + 1; j < all.size(); j ++){
+                result.add(Pair.of(all.get(i), all.get(j)));
             }
         }
+
         return result;
     }
 }
