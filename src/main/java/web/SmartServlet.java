@@ -1,6 +1,6 @@
 package web;
 
-import services.SmartService;
+import services.VectorService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class SmartServlet extends HttpServlet {
-    SmartService smartService = new SmartService();
+    VectorService smartService = new VectorService();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("smartpairs", smartService.getPairs());
+        req.setAttribute("smartpairs", smartService.findAll());
         req.getRequestDispatcher("/WEB-INF/pages/smart.jsp").forward(req, resp);
     }
 
