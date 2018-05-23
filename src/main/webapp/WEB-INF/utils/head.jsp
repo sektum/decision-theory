@@ -2,3 +2,4 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="/static/vendor/bootstrap.min.css" crossorigin="anonymous">
 <link rel="stylesheet" href="/static/css/styles.css" type="text/css"/>
+<link rel="stylesheet" href="/static/vendor/font-awesome-4.7.0/css/font-awesome.min.css" type="text/css"/>
