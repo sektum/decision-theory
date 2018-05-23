@@ -13,6 +13,7 @@ import entities.Criterion;
 import entities.Mark;
 import entities.Vector;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,8 +26,8 @@ public class VectorService {
     private MarkDao markDao = new JdbcMarkDao();
     private VectorDao vectorDao = new JdbcVectorDao();
 
-    public Iterable<VectorDto> findAll(){
-        Iterable<Vector> vectors = vectorDao.findAll();
+    public List<VectorDto> findAll(){
+        List<Vector> vectors = vectorDao.findAll();
         Map<Long, List<Vector>> vectorsByAltId = StreamSupport.stream(vectors.spliterator(), false)
                 .collect(Collectors.groupingBy(
                         Vector::getAltId, Collectors.toList()
@@ -48,5 +49,17 @@ public class VectorService {
         }
 
         return new VectorDto(altName, marks);
+    }
+
+    public List<VectorDto> getpairs(){
+        List<VectorDto> result = new ArrayList<>();
+        List<VectorDto> temp = this.findAll();
+        for (int i = 0; i < temp.size() - 1; i++){
+            result.add(temp.get(i));
+            for (int j = i + 1; j < temp.size(); j ++){
+                result.add(temp.get(j));
+            }
+        }
+        return result;
     }
 }

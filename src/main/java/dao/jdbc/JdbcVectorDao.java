@@ -17,7 +17,7 @@ public class JdbcVectorDao implements VectorDao {
     private RowMapper<Vector> vectorRowMapper = new VectorRowMapper();
 
     @Override
-    public Iterable<Vector> findAll() {
+    public List<Vector> findAll() {
         String query = "select * from Vector";
         try (Connection conn = connectionHolder.getConnection(); Statement stmt = conn.createStatement())
         {

@@ -19,9 +19,10 @@
                 </div>
                 <div class="title__persons text-right">
                     <div class="person title__person">
-                        <div class="person__action">Выполнила</div>
+                        <div class="person__action">Выполнили</div>
                         <div class="person__title">ст. гр. ПЗСм-17-3</div>
                         <div class="person__id">В. Гранкина</div>
+                        <div class="person__id">М. Гройс</div>
                     </div>
                     <div class="person title__person">
                         <div class="person__actoin">Проверила</div>

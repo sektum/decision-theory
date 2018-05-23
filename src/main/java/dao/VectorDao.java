@@ -1,7 +1,8 @@
 package dao;
 
 import entities.Vector;
+import java.util.List;
 
 public interface VectorDao {
-    Iterable<Vector> findAll();
+    List<Vector> findAll();
 }
