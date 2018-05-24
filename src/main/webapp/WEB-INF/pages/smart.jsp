@@ -44,7 +44,7 @@
                         </div>
                     </c:forEach>
                 </div>
-                <a class="carousel-control-prev smart-carousel__control" href="#carousel-smart" role="button"
+                <a class="carousel-control-prev smart-carousel__control d-none" href="#carousel-smart" role="button"
                    data-slide="prev">
                     <i class="fa fa-chevron-left"></i>
                     <span class="sr-only">Previous</span>
@@ -65,6 +65,23 @@
         $.post('/smart', data);
         $('#carousel-smart').carousel('next');
     });
+    $('#carousel-smart')
+        .on('slid.bs.carousel', function () {
+            var curSlide = $('div.active');
+            if (curSlide.is(':first-child'))
+            {
+                $('.carousel-control-prev').addClass('d-none');
+            }
+            else {
+                $('.carousel-control-prev').removeClass('d-none');
+            }
+            if (curSlide.is(':last-child')) {
+                $('.carousel-control-next').addClass('d-none');
+            }
+            else {
+                $('.carousel-control-next').removeClass('d-none');
+            }
+        });
 </script>
 </body>
 </html>
