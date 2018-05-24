@@ -20,10 +20,11 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${alternatives}" var="alternative">
-                    <c:forEach items="${alternative}" var="alternative">
+                <c:forEach items="${alternatives}" var="alt1">
+                    <c:forEach items="${alternatives}" var="alt2">
                             <tr>
-                                <td class="font-weight-bold">${alternative}</td>
+                                <td class="font-weight-bold">${alt2}</td>
+                                <td>${comparisons.get(f:of(alt1, alt2))}</td>
                             </tr>
                     </c:forEach>
                 </c:forEach>
