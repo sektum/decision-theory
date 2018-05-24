@@ -22,15 +22,33 @@
                                     <div class="col-sm-12 col-md-2 text-center">
                                         <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
                                             <label class="btn btn-secondary">
-                                                <input type="radio" name="operation" autocomplete="off" class="operation-radio" value="<">
+                                                <input
+                                                        type="radio"
+                                                        name="operation"
+                                                        autocomplete="off"
+                                                        class="operation-radio"
+                                                        value="<"
+                                                >
                                                 <
                                             </label>
                                             <label class="btn btn-secondary">
-                                                <input type="radio" name="operation" autocomplete="off" class="operation-radio" value="=">
+                                                <input
+                                                        type="radio"
+                                                        name="operation"
+                                                        autocomplete="off"
+                                                        class="operation-radio"
+                                                        value="="
+                                                >
                                                 =
                                             </label>
                                             <label class="btn btn-secondary">
-                                                <input type="radio" name="operation" autocomplete="off" class="operation-radio" value=">">
+                                                <input
+                                                        type="radio"
+                                                        name="operation"
+                                                        autocomplete="off"
+                                                        class="operation-radio"
+                                                        value=">"
+                                                >
                                                 >
                                             </label>
                                         </div>
@@ -58,18 +76,42 @@
         </div>
     </div>
 </div>
+
+<div class="modal hide" tabindex="-1" role="dialog" id="resultModal" aria-hidden="true" data-backdrop="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Готово</h5>
+            </div>
+            <div class="modal-body">
+                <p>Ваш выбор сохранен.</p>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-primary" href="/results" role="button">Получить результат!</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <%@include file="/WEB-INF/utils/footer.jsp" %>
 <script type="text/javascript">
-    $('.operation-radio').change(function() {
+    $('.operation-radio').change(function () {
+
         var data = $(this).closest('form').serialize();
         $.post('/smart', data);
-        $('#carousel-smart').carousel('next');
+
+        var curSlide = $('div.active');
+        if (curSlide.is(':last-child')) {
+            $('#resultModal').show();
+        }
+        else {
+            $('#carousel-smart').carousel('next');
+        }
     });
     $('#carousel-smart')
         .on('slid.bs.carousel', function () {
             var curSlide = $('div.active');
-            if (curSlide.is(':first-child'))
-            {
+            if (curSlide.is(':first-child')) {
                 $('.carousel-control-prev').addClass('d-none');
             }
             else {
