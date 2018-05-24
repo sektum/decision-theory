@@ -20,8 +20,11 @@
             <li class="nav-item _vectors-li">
                 <a class="nav-link" href="/vectors">Векторы</a>
             </li>
-            <li class="nav-item _vectors-li">
+            <li class="nav-item _smart-li">
                 <a class="nav-link" href="/smart">Smart-выбор</a>
+            </li>
+            <li class="nav-item _results-li">
+                <a class="nav-link" href="/results">Результаты</a>
             </li>
         </ul>
     </div>

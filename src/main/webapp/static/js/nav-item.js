@@ -18,6 +18,14 @@ else if (path == '/vectors') {
     highlight($('._vectors-li'));
 }
 
+else if (path == 'smart') {
+    highlight($('._smart-li'));
+}
+
+else if (path == '/results') {
+    highlight($('._results-li'));
+}
+
 function highlight($li)
 {
     $li.addClass('active');
