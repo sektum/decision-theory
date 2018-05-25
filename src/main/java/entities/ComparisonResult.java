@@ -7,7 +7,7 @@ public enum ComparisonResult {
 
     private String sign;
 
-    ComparisonResult(String sign) {
+     ComparisonResult(String sign) {
         this.sign = sign;
     }
 
