@@ -1,6 +1,6 @@
 package dao;
 
-import entities.ComparisonResult;
+import models.ComparisonResult;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.ArrayList;

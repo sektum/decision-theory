@@ -1,7 +1,7 @@
 package web;
 
 import dao.ComparisonDao;
-import entities.ComparisonResult;
+import models.ComparisonResult;
 import processes.SmartProcess;
 
 import javax.servlet.ServletException;
