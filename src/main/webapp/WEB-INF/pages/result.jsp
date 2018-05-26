@@ -10,6 +10,12 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col">
+            <c:if test="${matrix.isEmpty()}">
+                <div class="alert alert-danger" role="alert">
+                    Перейдите на <a href="/smart">страницу </a>, чтобы сделать выбор.
+                </div>
+            </c:if>
+            <c:if test="${! matrix.isEmpty()}">
             <table class="table">
                 <thead>
                 <tr>
@@ -30,6 +36,7 @@
                 </c:forEach>
                 </tbody>
             </table>
+            </c:if>
         </div>
     </div>
 </div>

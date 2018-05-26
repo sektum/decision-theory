@@ -20,6 +20,11 @@ public class ComparisonMatrix {
         matrix.get(alt2).put(alt1, result.reverse());
     }
 
+    public boolean isEmpty()
+    {
+        return matrix.isEmpty();
+    }
+
     public ComparisonResult get(String alt1, String alt2)
     {
         return Optional.ofNullable(matrix.get(alt1))
