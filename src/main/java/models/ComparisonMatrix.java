@@ -1,13 +1,19 @@
 package models;
 
+import java.util.AbstractMap;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import static java.util.Comparator.comparing;
+import static java.util.Comparator.comparingInt;
+import static java.util.Comparator.reverseOrder;
+import static java.util.stream.Collectors.toMap;
 import static models.ComparisonResult.EQUAL;
+import static models.ComparisonResult.MORE;
 
 public class ComparisonMatrix {
     private Map<String, Map<String, ComparisonResult>> matrix = new LinkedHashMap<>();
@@ -23,6 +29,14 @@ public class ComparisonMatrix {
     public boolean isEmpty()
     {
         return matrix.isEmpty();
+    }
+
+    public Map<String, Integer> getResults()
+    {
+        return matrix.keySet().stream()
+                .map(key -> new AbstractMap.SimpleEntry<>(key, Collections.frequency(matrix.get(key).values(), MORE)))
+                .sorted(comparing(Map.Entry::getValue, reverseOrder()))
+                .collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
     }
 
     public ComparisonResult get(String alt1, String alt2)

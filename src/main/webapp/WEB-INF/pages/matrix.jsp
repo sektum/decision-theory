@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <%@ include file="/WEB-INF/utils/head.jsp" %>
-    <title>Результаты</title>
+    <title>Матрица Сравнений</title>
 </head>
 <body>
 <%@include file="/WEB-INF/components/navbar.jsp" %>

@@ -77,6 +77,15 @@
         <url-pattern>/smart</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ResultsServlet</servlet-name>
+        <servlet-class>web.ResultServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResultsServlet</servlet-name>
+        <url-pattern>/results</url-pattern>
+    </servlet-mapping>
+
     <jsp-config>
         <jsp-property-group>
             <url-pattern>*.jsp</url-pattern>
