@@ -27,7 +27,8 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/smart">Smart-выбор</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/results">Результаты</a>
+                    <a class="dropdown-item" href="/matrix">Матрица сравнений</a>
+                    <a class="dropdown-item" href="/range">Результаты</a>
                 </div>
             </li>
             <li class="nav-item dropdown">

@@ -52,12 +52,12 @@
     </servlet-mapping>
     
     <servlet>
-        <servlet-name>ResultsServlet</servlet-name>
-        <servlet-class>web.ResultServlet</servlet-class>
+        <servlet-name>MatrixServlet</servlet-name>
+        <servlet-class>web.MatrixServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ResultsServlet</servlet-name>
-        <url-pattern>/results</url-pattern>
+        <servlet-name>MatrixServlet</servlet-name>
+        <url-pattern>/matrix</url-pattern>
     </servlet-mapping>
     
     <servlet>

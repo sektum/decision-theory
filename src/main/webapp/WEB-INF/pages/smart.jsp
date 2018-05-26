@@ -87,7 +87,7 @@
                 <p>Ваш выбор сохранен.</p>
             </div>
             <div class="modal-footer">
-                <a class="btn btn-primary" href="/results" role="button">Получить результат!</a>
+                <a class="btn btn-primary" href="/matrix" role="button">Получить результат!</a>
             </div>
         </div>
     </div>
