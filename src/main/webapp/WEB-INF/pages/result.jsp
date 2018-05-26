@@ -10,12 +10,12 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col">
-            <table>
+            <table class="table">
                 <thead>
                 <tr>
-                    <td>/</td>
+                    <td></td>
                     <c:forEach items="${matrix.alternatives}" var="alternative">
-                        <th>${alternative}</th>
+                        <th class="text-center">${alternative}</th>
                     </c:forEach>
                 </tr>
                 </thead>
@@ -24,7 +24,7 @@
                     <tr>
                         <td class="font-weight-bold">${outer}</td>
                         <c:forEach items="${matrix.alternatives}" var="inner">
-                            <td>${matrix.get(outer, inner).sign}</td>
+                            <td class="text-center">${matrix.get(outer, inner).sign}</td>
                         </c:forEach>
                     </tr>
                 </c:forEach>
