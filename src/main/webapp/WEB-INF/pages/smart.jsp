@@ -17,7 +17,7 @@
                                 <div class="row align-items-center">
                                     <div class="col-sm-12 col-md-5">
                                         <input type="hidden" name="alt1" value="${pair.key.altName}"/>
-                                        <my:vector vector="${pair.key}"/>
+                                        <my:vector vector="${pair.key}" strike="true"/>
                                     </div>
                                     <div class="col-sm-12 col-md-2 text-center">
                                         <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
@@ -55,7 +55,7 @@
                                     </div>
                                     <div class="col-sm-12 col-md-5">
                                         <input type="hidden" name="alt2" value="${pair.value.altName}"/>
-                                        <my:vector vector="${pair.value}"/>
+                                        <my:vector vector="${pair.value}" strike="true"/>
                                     </div>
                                 </div>
                             </form>
@@ -124,6 +124,9 @@
                 $('.carousel-control-next').removeClass('d-none');
             }
         });
+    $('._criterionCheck').change(function(){
+        $(this).closest('tr').toggleClass('disabled-row');
+    });
 </script>
 </body>
 </html>

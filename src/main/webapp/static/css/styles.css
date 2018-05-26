@@ -51,3 +51,7 @@
 .smart-carousel__form {
     width: 100%;
 }
+
+tr.disabled-row ._criterion {
+    text-decoration: line-through;
+}
