@@ -72,29 +72,4 @@ public class ComparisonMatrixTest {
         assertEquals(matrix.get(ALT_2, ALT_2), EQUAL);
         assertEquals(matrix.get(ALT_3, ALT_3), null);
     }
-
-    @Test
-    public void shouldHandleMultipleEntries()
-    {
-        //when
-        matrix.put(ALT_1, ALT_2, LESS);
-        matrix.put(ALT_2, ALT_3, MORE);
-
-        //then
-        Map<String, ComparisonResult> alt1Comparisons = new HashMap<>();
-        alt1Comparisons.put(ALT_1, EQUAL);
-        alt1Comparisons.put(ALT_2, LESS);
-        assertEquals(matrix.getComparisons(ALT_1), alt1Comparisons);
-
-        Map<String, ComparisonResult> alt2Comparisons = new HashMap<>();
-        alt2Comparisons.put(ALT_1, MORE);
-        alt2Comparisons.put(ALT_2, EQUAL);
-        alt2Comparisons.put(ALT_3, MORE);
-        assertEquals(matrix.getComparisons(ALT_2), alt2Comparisons);
-
-        Map<String, ComparisonResult> alt3Comparisons = new HashMap<>();
-        alt3Comparisons.put(ALT_2, LESS);
-        alt3Comparisons.put(ALT_3, EQUAL);
-        assertEquals(matrix.getComparisons(ALT_3), alt3Comparisons);
-    }
 }

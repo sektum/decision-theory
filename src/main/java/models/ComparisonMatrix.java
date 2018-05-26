@@ -32,14 +32,9 @@ public class ComparisonMatrix {
         return new ArrayList<>(matrix.keySet());
     }
 
-    public Map<String, ComparisonResult> getComparisons(String alternative)
-    {
-        return matrix.get(alternative);
-    }
-
     private Map<String, ComparisonResult> createInitialMap(String alternative)
     {
-        Map<String, ComparisonResult> map = new HashMap<>();
+        Map<String, ComparisonResult> map = new LinkedHashMap<>();
         map.put(alternative, EQUAL);
 
         return map;

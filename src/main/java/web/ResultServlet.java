@@ -13,8 +13,7 @@ public class ResultServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("comparisons", comparisonDao.getComparisonMatrix());
-        request.setAttribute("alternatives", comparisonDao.getComparedAlternatives());
+        request.setAttribute("matrix", comparisonDao.getComparisonMatrix());
         request.getRequestDispatcher("/WEB-INF/pages/result.jsp").forward(request, response);
     }
 }

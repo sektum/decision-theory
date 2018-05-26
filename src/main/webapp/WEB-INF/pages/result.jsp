@@ -14,19 +14,19 @@
                 <thead>
                 <tr>
                     <td>/</td>
-                    <c:forEach items="${alternatives}" var="alternative">
+                    <c:forEach items="${matrix.alternatives}" var="alternative">
                         <th>${alternative}</th>
                     </c:forEach>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${alternatives}" var="alt1">
-                    <c:forEach items="${alternatives}" var="alt2">
-                            <tr>
-                                <td class="font-weight-bold">${alt2}</td>
-                                <td>${comparisons.get(f:of(alt1, alt2))}</td>
-                            </tr>
-                    </c:forEach>
+                <c:forEach items="${matrix.alternatives}" var="outer">
+                    <tr>
+                        <td class="font-weight-bold">${outer}</td>
+                        <c:forEach items="${matrix.alternatives}" var="inner">
+                            <td>${matrix.get(outer, inner).sign}</td>
+                        </c:forEach>
+                    </tr>
                 </c:forEach>
                 </tbody>
             </table>
