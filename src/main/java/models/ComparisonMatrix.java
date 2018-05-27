@@ -8,11 +8,16 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static java.util.Comparator.comparing;
 import static java.util.Comparator.reverseOrder;
+import static java.util.stream.Collectors.counting;
+import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.summarizingLong;
+import static java.util.stream.Collectors.summingInt;
 import static java.util.stream.Collectors.toMap;
 import static java.util.stream.Collectors.toSet;
 import static models.ComparisonResult.EQUAL;
@@ -24,10 +29,9 @@ public class ComparisonMatrix {
 
     public ComparisonMatrix put(String alt1, String alt2, ComparisonResult result)
     {
-        matrix.putIfAbsent(alt1, createInitialMap(alt1));
-        matrix.putIfAbsent(alt2, createInitialMap(alt2));
+        matrix.putIfAbsent(alt1, new LinkedHashMap<>());
+        matrix.putIfAbsent(alt2, new LinkedHashMap<>());
         matrix.get(alt1).put(alt2, result);
-        matrix.get(alt2).put(alt1, result.reverse());
 
         return this;
     }
@@ -37,19 +41,29 @@ public class ComparisonMatrix {
         return matrix.isEmpty();
     }
 
-    public Map<String, Integer> getResults()
+    public Map<String, Long> getResults()
     {
-        return matrix.keySet().stream()
-                .map(key -> new AbstractMap.SimpleEntry<>(key, Collections.frequency(matrix.get(key).values(), MORE)))
-                .sorted(comparing(Map.Entry::getValue, reverseOrder()))
-                .collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+        Map<String, Long> map1 = getMoreRelation().stream()
+                .collect(Collectors.groupingBy(Pair::getKey, counting()));
+        Map<String, Long> map2 = getLessThanRelation().stream()
+                .collect(Collectors.groupingBy(Pair::getValue, counting()));
+        Map<String, Long> map3 = Stream.of(map1, map2).flatMap(m -> m.entrySet().stream())
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> a + b));
+
+        getAlternatives().forEach(alt -> map3.putIfAbsent(alt, 0L));
+
+        return map3;
     }
 
     public ComparisonResult get(String alt1, String alt2)
     {
-        return Optional.ofNullable(matrix.get(alt1))
-                .map(map -> map.get(alt2))
-                .orElse(null);
+        if (alt1.equals(alt2))
+            return EQUAL;
+        if (matrix.get(alt1) == null)
+            return null;
+        if (matrix.get(alt1).get(alt2) == null)
+            return matrix.get(alt2).get(alt1).reverse();
+        return matrix.get(alt1).get(alt2);
     }
 
     public List<String> getAlternatives()
@@ -88,13 +102,5 @@ public class ComparisonMatrix {
                 )
                 .filter(relation -> !relation.getA().equals(relation.getB()))
                 .collect(toSet());
-    }
-
-    private Map<String, ComparisonResult> createInitialMap(String alternative)
-    {
-        Map<String, ComparisonResult> map = new LinkedHashMap<>();
-        map.put(alternative, EQUAL);
-
-        return map;
     }
 }

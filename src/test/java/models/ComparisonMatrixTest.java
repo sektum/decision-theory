@@ -4,7 +4,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 
@@ -71,7 +70,6 @@ public class ComparisonMatrixTest {
         //then
         assertEquals(matrix.get(ALT_1, ALT_1), EQUAL);
         assertEquals(matrix.get(ALT_2, ALT_2), EQUAL);
-        assertEquals(matrix.get(ALT_3, ALT_3), null);
     }
 
     @Test
@@ -86,13 +84,25 @@ public class ComparisonMatrixTest {
         assertEquals(
                 new HashSet<>(Arrays.asList(
                         new Relation(ALT_1, ALT_2, LESS),
-                        new Relation(ALT_2, ALT_1, MORE),
                         new Relation(ALT_1, ALT_3, MORE),
-                        new Relation(ALT_3, ALT_1, LESS),
-                        new Relation(ALT_2, ALT_3, EQUAL),
-                        new Relation(ALT_3, ALT_3, EQUAL)
+                        new Relation(ALT_2, ALT_3, EQUAL)
                 )),
                 matrix.getRelations()
         );
+    }
+
+    @Test
+    public void shouldReturnCorrectResults()
+    {
+        //when
+        matrix.put(ALT_1, ALT_2, LESS);
+        matrix.put(ALT_2, ALT_3, MORE);
+        matrix.put(ALT_1, ALT_3, MORE);
+
+        //then
+        Map<String, Long> results = matrix.getResults();
+        assertEquals(Long.valueOf(1), results.get(ALT_1));
+        assertEquals(Long.valueOf(2), results.get(ALT_2));
+        assertEquals(Long.valueOf(0), results.get(ALT_3));
     }
 }
