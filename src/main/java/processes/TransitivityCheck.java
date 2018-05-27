@@ -17,9 +17,10 @@ public class TransitivityCheck {
         for (Pair<String, String> outer : set)
         {
             for (Pair<String, String> inner : except(outer, set)) {
-                Pair<String, String> pair = Pair.of(outer.getLeft(), inner.getRight());
-                if (!pair.getLeft().equals(pair.getRight()) && !set.contains(pair))
-                    return false;
+                if (!outer.getLeft().equals(inner.getRight())) {
+                    if (!set.contains(Pair.of(outer.getLeft(), inner.getRight())) && !set.contains(Pair.of(inner.getRight(), outer.getLeft())))
+                        return false;
+                }
             }
         }
 

@@ -93,6 +93,22 @@
     </div>
 </div>
 
+<div class="modal hide" tabindex="-1" role="dialog" id="transitivityModal" aria-hidden="true" data-backdrop="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Упс!</h5>
+            </div>
+            <div class="modal-body">
+                <p>Ваш выбор противоречит свойству транзитивности. Пожалуйста, сделайте его заново.</p>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-primary" href="/smart" role="button">Пройти заново</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <%@include file="/WEB-INF/utils/footer.jsp" %>
 <script type="text/javascript">
     $('.operation-radio').change(function () {
@@ -102,7 +118,14 @@
 
         var curSlide = $('div.active');
         if (curSlide.is(':last-child')) {
-            $('#resultModal').show();
+            $.get('/transitivity', function(data){
+                var response = JSON.parse(data);
+                if (response.valid) {
+                    $('#resultModal').show();
+                } else {
+                    $('#transitivityModal').show();
+                }
+            });
         }
         else {
             $('#carousel-smart').carousel('next');

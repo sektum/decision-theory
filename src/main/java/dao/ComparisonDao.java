@@ -15,4 +15,9 @@ public class ComparisonDao {
     {
         return MATRIX;
     }
+
+    public void clear()
+    {
+        MATRIX = new ComparisonMatrix();
+    }
 }

@@ -16,6 +16,8 @@ public class TransitivityCheckTest {
     public static final String A = "A";
     public static final String B = "B";
     public static final String C = "C";
+    public static final String D = "alt4";
+    public static final String E = "alt5";
     private TransitivityCheck transitivityCheck = new TransitivityCheck();
 
     @ParameterizedTest
@@ -77,6 +79,19 @@ public class TransitivityCheckTest {
                         .put(A, B, LESS)
                         .put(B, C, MORE)
                         .put(A, C, EQUAL),
+                        true
+                ),
+                Arguments.of(
+                        new ComparisonMatrix()
+                        .put(A, B, EQUAL)
+                        .put(A, C, EQUAL)
+                        .put(A, D, EQUAL)
+                        .put(A, E, EQUAL)
+                        .put(B, C, EQUAL)
+                        .put(B, D, EQUAL)
+                        .put(B, E, EQUAL)
+                        .put(C, E, EQUAL)
+                        .put(C, D, EQUAL),
                         true
                 )
         );

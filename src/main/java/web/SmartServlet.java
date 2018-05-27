@@ -18,6 +18,7 @@ public class SmartServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        comparisonDao.clear();
         req.setAttribute("smartPairs", smartProcess.getPairs());
         req.getRequestDispatcher("/WEB-INF/pages/smart.jsp").forward(req, resp);
     }
