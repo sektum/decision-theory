@@ -2,9 +2,7 @@ package models;
 
 import org.apache.commons.lang3.tuple.Pair;
 
-import java.util.AbstractMap;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,9 +13,6 @@ import java.util.stream.Stream;
 import static java.util.Comparator.comparing;
 import static java.util.Comparator.reverseOrder;
 import static java.util.stream.Collectors.counting;
-import static java.util.stream.Collectors.groupingBy;
-import static java.util.stream.Collectors.summarizingLong;
-import static java.util.stream.Collectors.summingInt;
 import static java.util.stream.Collectors.toMap;
 import static java.util.stream.Collectors.toSet;
 import static models.ComparisonResult.EQUAL;
@@ -52,7 +47,9 @@ public class ComparisonMatrix {
 
         getAlternatives().forEach(alt -> map3.putIfAbsent(alt, 0L));
 
-        return map3;
+        return map3.entrySet().stream()
+                .sorted(comparing(Map.Entry::getValue, reverseOrder()))
+                .collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
     }
 
     public ComparisonResult get(String alt1, String alt2)

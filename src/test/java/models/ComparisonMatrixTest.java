@@ -3,6 +3,7 @@ package models;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
@@ -104,5 +105,20 @@ public class ComparisonMatrixTest {
         assertEquals(Long.valueOf(1), results.get(ALT_1));
         assertEquals(Long.valueOf(2), results.get(ALT_2));
         assertEquals(Long.valueOf(0), results.get(ALT_3));
+    }
+
+    @Test
+    public void shouldSortResults()
+    {
+        //when
+        matrix.put(ALT_1, ALT_2, LESS);
+        matrix.put("alt5", ALT_1, LESS);
+        matrix.put(ALT_2, ALT_3, MORE);
+        matrix.put("alt4", ALT_1, LESS);
+        matrix.put(ALT_1, ALT_3, LESS);
+
+        //then
+        Map<String, Long> results = matrix.getResults();
+        assertEquals(Arrays.asList(ALT_2, ALT_1, ALT_3), new ArrayList<>(results.keySet()).subList(0, 3));
     }
 }
