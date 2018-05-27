@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 import static models.ComparisonResult.EQUAL;
@@ -71,5 +72,27 @@ public class ComparisonMatrixTest {
         assertEquals(matrix.get(ALT_1, ALT_1), EQUAL);
         assertEquals(matrix.get(ALT_2, ALT_2), EQUAL);
         assertEquals(matrix.get(ALT_3, ALT_3), null);
+    }
+
+    @Test
+    public void shouldCorrectlyGetRelations()
+    {
+        //when
+        matrix.put(ALT_1, ALT_2, LESS);
+        matrix.put(ALT_1, ALT_3, MORE);
+        matrix.put(ALT_2, ALT_3, EQUAL);
+
+        //then
+        assertEquals(
+                new HashSet<>(Arrays.asList(
+                        new Relation(ALT_1, ALT_2, LESS),
+                        new Relation(ALT_2, ALT_1, MORE),
+                        new Relation(ALT_1, ALT_3, MORE),
+                        new Relation(ALT_3, ALT_1, LESS),
+                        new Relation(ALT_2, ALT_3, EQUAL),
+                        new Relation(ALT_3, ALT_3, EQUAL)
+                )),
+                matrix.getRelations()
+        );
     }
 }
