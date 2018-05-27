@@ -100,7 +100,7 @@
                 <h5 class="modal-title">Упс!</h5>
             </div>
             <div class="modal-body">
-                <p>Ваш выбор противоречит свойству транзитивности. Пожалуйста, сделайте его заново.</p>
+                <p id="transitivityErrorMessage"></p>
             </div>
             <div class="modal-footer">
                 <a class="btn btn-primary" href="/smart" role="button">Пройти заново</a>
@@ -110,6 +110,7 @@
 </div>
 
 <%@include file="/WEB-INF/utils/footer.jsp" %>
+<script src="/static/vendor/mustache.min.js"></script>
 <script type="text/javascript">
     $('.operation-radio').change(function () {
 
@@ -123,6 +124,8 @@
                 if (response.valid) {
                     $('#resultModal').show();
                 } else {
+                    var output = Mustache.render('Ваш выбор невалиден.');
+                    $('#transitivityErrorMessage').text(output);
                     $('#transitivityModal').show();
                 }
             });
