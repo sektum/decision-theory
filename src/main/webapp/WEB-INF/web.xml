@@ -104,6 +104,15 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>SaveResults</servlet-name>
+        <servlet-class>web.lab3.SaveResultsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SaveResults</servlet-name>
+        <url-pattern>/saveResults</url-pattern>
+    </servlet-mapping>
+
     <jsp-config>
         <jsp-property-group>
             <url-pattern>*.jsp</url-pattern>

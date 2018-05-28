@@ -49,4 +49,20 @@ public class JdbcAlternativeDao implements AlternativeDao {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public Long findByName(String name) {
+        String query = "select * from Alternative where AName = ?";
+        try (
+                Connection conn = connectionHolder.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(query)
+        ) {
+            stmt.setString(1, name);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            return alternativeRowMapper.map(rs, 1).getId();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -10,7 +10,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
     {
-        String lprId = req.getParameter("lpr");
+        int lprId = Integer.valueOf(req.getParameter("lpr"));
         req.getSession().setAttribute("lpr", lprId);
 
         resp.setStatus(SC_OK);
