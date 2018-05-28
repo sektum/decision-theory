@@ -23,6 +23,7 @@ public class SimpsonProcessTest {
         );
 
         //then
+        // Правильно, что в результирующем списке 1 пара, но в разном порядке?
         assertEquals(asList(
                 new Simpson(Pair.of(1L, 2L), 1),
                 new Simpson(Pair.of(2L, 1L), 1)
@@ -42,6 +43,7 @@ public class SimpsonProcessTest {
         );
 
         //then
+        // Правильно ли, что в результате содержится пара сама с собой?
         assertThat(simpsonProcess.simpsons).containsOnly(
                 new Simpson(Pair.of(1L, 2L), 2),
                 new Simpson(Pair.of(2L, 1L),2),
