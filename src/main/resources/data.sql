@@ -6,9 +6,13 @@ INSERT INTO ALTERNATIVE (IDALT, ANAME) VALUES (4, 'Lenovo Yoga');
 INSERT INTO ALTERNATIVE (IDALT, ANAME) VALUES (5, 'ASUS K501UW-AB78');
 
 delete from LPR;
-insert into LPR (IDLPR, LNAME, LRANGE) values (1, 'Иван Иванов', 1);
-insert into LPR (IDLPR, LNAME, LRANGE) values (2, 'Петр Петров', 1);
-insert into LPR (IDLPR, LNAME, LRANGE) values (3, 'Василий Сидоров', 1);
+insert into LPR (IDLPR, LNAME, LRANGE) values (1, 'Кирилл Карачевцев', 1);
+insert into LPR (IDLPR, LNAME, LRANGE) values (2, 'Петр Порошенко', 2);
+insert into LPR (IDLPR, LNAME, LRANGE) values (3, 'Никита Джигурда', 1);
+insert into LPR (IDLPR, LNAME, LRANGE) values (4, 'Виктор Пинкин', 2);
+insert into LPR (IDLPR, LNAME, LRANGE) values (5, 'Скарлетт Йохансон', 1);
+insert into LPR (IDLPR, LNAME, LRANGE) values (6, 'Мелисса Бенойст', 1);
+insert into LPR (IDLPR, LNAME, LRANGE) values (7, 'Натали Дормер', 1);
 
 delete from CRITERION;
 insert into CRITERION (IDCRIT, CNAME, CRANGE, CWEIGHT, CTYPE, OPTIMTYPE, EDIZMER, SCALETYPE)
