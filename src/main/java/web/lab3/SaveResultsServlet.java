@@ -3,8 +3,8 @@ package web.lab3;
 import dao.AlternativeDao;
 import dao.ComparisonDao;
 import dao.ResultDao;
-import dao.inmemory.InMemoryResultDao;
 import dao.jdbc.JdbcAlternativeDao;
+import dao.jdbc.JdbcResultDao;
 import entities.Result;
 
 import javax.servlet.http.HttpServlet;
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class SaveResultsServlet extends HttpServlet {
-    private ResultDao resultDao = new InMemoryResultDao();
+    private ResultDao resultDao = new JdbcResultDao();
     private ComparisonDao comparisonDao = new ComparisonDao();
     private AlternativeDao alternativeDao = new JdbcAlternativeDao();
 

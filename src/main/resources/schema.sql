@@ -46,11 +46,10 @@ create table Vector (
 
 drop table if exists Result;
 create table Result (
-  idRes smallint not null primary key ,
   idLpr smallint not null ,
   idAlt smallint not null ,
-  Range smallint not null ,
   AWeight smallint not null ,
+  PRIMARY KEY (idLpr, idAlt),
   foreign key (idLpr) references lpr(idLPR),
   foreign key (idAlt) references Alternative(idAlt)
 );
