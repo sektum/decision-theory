@@ -1,10 +1,14 @@
 package processes;
 
 import models.ComparisonMatrix;
+import models.ComparisonResult;
+import org.apache.commons.lang3.tuple.Pair;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Stream;
 
 import static models.ComparisonResult.EQUAL;
@@ -25,10 +29,10 @@ public class TransitivityCheckTest {
     public void shouldCheckTransitivity(ComparisonMatrix matrix, boolean expected)
     {
         //when
-        boolean actual = transitivityCheck.isHolds(matrix);
+        Pair<Boolean, Map<ComparisonResult, List<String>>> actual = transitivityCheck.isHolds(matrix);
 
         //then
-        assertEquals(expected, actual);
+        assertEquals(expected, actual.getKey());
     }
 
     private static Stream<Arguments> matrices()
