@@ -113,6 +113,14 @@
 <%@include file="/WEB-INF/utils/footer.jsp" %>
 <script src="/static/vendor/mustache.min.js"></script>
 <script src="/static/js/showModalOnStartup.js"></script>
+<script src="/static/js/sendLoginData.js"></script>
+<script type="text/javascript">
+    $('#loginButton').click(function (e) {
+        e.preventDefault();
+        sendLoginData();
+        $('#loginModal').modal('hide');
+    })
+</script>
 <script type="text/javascript">
     $('.operation-radio').change(function () {
 
@@ -124,11 +132,11 @@
             $.get('/transitivity', function(data){
                 var response = JSON.parse(data);
                 if (response.valid) {
-                    $('#resultModal').show();
+                    $('#resultModal').modal('show');
                 } else {
                     var output = Mustache.render('Ваш выбор невалиден.');
                     $('#transitivityErrorMessage').text(output);
-                    $('#transitivityModal').show();
+                    $('#transitivityModal').modal('show');
                 }
             });
         }
