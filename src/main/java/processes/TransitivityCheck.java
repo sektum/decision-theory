@@ -33,16 +33,11 @@ public class TransitivityCheck {
     }
 
     private Pair<Boolean, Pair<String, String>> checkTransitivity(Set<Pair<String, String>> set) {
-        for (Pair<String, String> outer : set)
-        {
-            for (Pair<String, String> inner : except(outer, set)) {
-                if (!outer.getLeft().equals(inner.getRight())) {
-                    Pair<String, String> pair1 = Pair.of(outer.getLeft(), inner.getRight());
-                    Pair<String, String> pair2 = Pair.of(inner.getRight(), outer.getLeft());
-                    if (!set.contains(pair1) && !set.contains(pair2))
-                    {
-                        return Pair.of(false, pair1);
-                    }
+        for (Pair<String, String> firstPair : set) {
+            for (Pair<String, String> secondPair : except(firstPair, set)) {
+                Pair<String, String> thirdPair = Pair.of(firstPair.getLeft(), secondPair.getRight());
+                if (!set.contains(thirdPair)) {
+                    return Pair.of(false, thirdPair);
                 }
             }
         }
@@ -50,10 +45,9 @@ public class TransitivityCheck {
         return Pair.of(true, null);
     }
 
-    private <T> Set<T> except(T elem, Set<T> set)
-    {
+    private Set<Pair<String, String>> except(Pair<String, String> pair, Set<Pair<String, String>> set) {
         return set.stream()
-                .filter(e -> !e.equals(elem))
+                .filter(p -> p.getLeft().equals(pair.getRight()))
                 .collect(Collectors.toSet());
     }
 }

@@ -23,8 +23,8 @@ public class TransitivityCheckServlet extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Pair<Boolean, Map<ComparisonResult, List<String>>> result = transitivityCheck.isHolds(comparisonDao.getComparisonMatrix());
         Map<String, Object> responseString = new HashMap<>();
-        responseString.put("valid", true);
-        responseString.put("errors", new ArrayList<>());
+        responseString.put("valid", result.getKey());
+        responseString.put("errors", result.getValue());
         ObjectMapper mapper = new ObjectMapper();
         resp.getWriter().print(mapper.writeValueAsString(responseString));
     }
