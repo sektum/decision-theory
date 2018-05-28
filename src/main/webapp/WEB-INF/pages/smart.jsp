@@ -77,7 +77,7 @@
     </div>
 </div>
 
-<div class="modal hide" tabindex="-1" role="dialog" id="resultModal" aria-hidden="true" data-backdrop="true">
+<div class="modal hide" tabindex="-1" role="dialog" id="resultModal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -109,8 +109,10 @@
     </div>
 </div>
 
+<%@include file="/WEB-INF/components/loginModal.jsp"%>
 <%@include file="/WEB-INF/utils/footer.jsp" %>
 <script src="/static/vendor/mustache.min.js"></script>
+<script src="/static/js/showModalOnStartup.js"></script>
 <script type="text/javascript">
     $('.operation-radio').change(function () {
 
