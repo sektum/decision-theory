@@ -4,11 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
-public class Person {
+public class Bardo {
     @Getter
-    private int id;
+    private long idAlt;
     @Getter
-    private String name;
-    @Getter
-    private int range;
+    private long aWeight;
 }

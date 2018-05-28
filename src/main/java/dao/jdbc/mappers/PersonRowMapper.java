@@ -9,7 +9,7 @@ public class PersonRowMapper implements RowMapper<Person> {
     @Override
     public Person map(ResultSet rs, int rowNum) {
         try {
-            long id = rs.getLong("idLPR");
+            int id = rs.getInt("idLPR");
             String name = rs.getString("LName");
             int range = rs.getInt("LRange");
 

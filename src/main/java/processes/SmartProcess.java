@@ -30,18 +30,4 @@ public class SmartProcess {
 
         return result;
     }
-
-    public String[][] makeMatrix(Map<Pair<String, String>, String> request) {
-        String[][] matrix = new String[request.keySet().size()][request.values().size()];
-        Set keys = new HashSet();
-        keys = request.keySet();
-        matrix[0][0] = "head";
-        for (int i = 1; i < matrix.length; i++) {
-            matrix[i][i] = "=";
-            matrix[0][i] = "";
-            matrix[i][0] = "";
-        }
-        return matrix;
-    }
-
 }

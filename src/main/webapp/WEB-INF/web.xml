@@ -105,6 +105,26 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>BardoServlet</servlet-name>
+        <servlet-class>web.lab3.BardoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BardoServlet</servlet-name>
+        <url-pattern>/bardo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SimpsonServlet</servlet-name>
+        <servlet-class>web.lab3.SimpsonServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SimpsonServlet</servlet-name>
+        <url-pattern>/simpson</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet>
         <servlet-name>SaveResults</servlet-name>
         <servlet-class>web.lab3.SaveResultsServlet</servlet-class>
     </servlet>
