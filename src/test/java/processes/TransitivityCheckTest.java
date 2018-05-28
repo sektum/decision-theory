@@ -125,6 +125,20 @@ public class TransitivityCheckTest {
                         .put(C, E, LESS)
                         .put(D, E, MORE),
                         true
+                ),
+                Arguments.of(
+                        new ComparisonMatrix()
+                        .put(A, B, LESS)
+                        .put(A, C, EQUAL)
+                        .put(B, C, MORE),
+                        true
+                ),
+                Arguments.of(
+                        new ComparisonMatrix()
+                        .put(A, B, LESS)
+                        .put(A, C, EQUAL)
+                        .put(B, C, LESS),
+                        false
                 )
         );
     }
