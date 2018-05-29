@@ -19,8 +19,8 @@
                 <ul class="list-group">
                     <c:forEach items="${results}" var="result">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            ${result.key}
-                            <span class="badge badge-primary badge-pill">${result.value}</span>
+                            ${result.getPair()}
+                            <span class="badge badge-primary badge-pill">${result.getCount()}</span>
                         </li>
                     </c:forEach>
                 </ul>

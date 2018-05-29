@@ -10,41 +10,41 @@ import entities.Simpson;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 import static utils.ListUtils.exclude;
 
 public class SimpsonProcess {
-    ResultDao resultDao = new JdbcResultDao();
-    PersonDao personDao = new JdbcPersonDao();
-    List<Simpson> simpsons = new ArrayList<>();
+    private ResultDao resultDao = new JdbcResultDao();
+    private PersonDao personDao = new JdbcPersonDao();
+    private List<Simpson> simpsons;
+    private List<Result> results;
 
     public List<Simpson> getSimpsonList() {
         Iterable<Person> persons = personDao.findAll();
         simpsons = new ArrayList<>();
         for (Person person : persons) {
-            List<Result> results;
             results = resultDao.findAllByLpr(person.getId());
             addSimpsons(results);
         }
-        //метод Симпсона
+        for (Simpson simpson :
+                simpsons) {
+            System.out.println("(" + simpson.getPair().getLeft() + ", " + simpson.getPair().getRight() + ") x" + simpson.getCount());
+        }
+        minPairForIdAlt(simpsons);
         return simpsons;
     }
 
-    void addSimpsons(List<Result> results){
-        for (Result outer : results)
-        {
-            for (Result inner : exclude(outer, results))
-            {
-                Pair<Long, Long> pair = Pair.of(outer.getIdAlt(), inner.getIdAlt());
-                Simpson simpson = findPair(pair);
-                if (simpson == null) {
+    void addSimpsons(List<Result> results) {
+        for (int i = 0; i < results.size() - 1; i++) {
+            for (int j = i + 1; j < results.size(); j++) {
+                Pair<Long, Long> pair = Pair.of(results.get(i).getIdAlt(), results.get(j).getIdAlt());
+                if (findPair(pair) == null) {
                     simpsons.add(new Simpson(pair, 1));
-                }
-                else
-                {
-                    simpson.incrementCount();
+                } else {
+                    findPair(pair).incrementCount();
                 }
             }
         }
@@ -54,11 +54,30 @@ public class SimpsonProcess {
          */
     }
 
-    private Simpson findPair(Pair<Long, Long> pair)
-    {
+    private Simpson findPair(Pair<Long, Long> pair) {
         return simpsons.stream()
                 .filter(simpson -> simpson.getPair().equals(pair))
                 .findAny()
                 .orElse(null);
+    }
+
+    private void minPairForIdAlt(List<Simpson> simpsons) {
+        List<Simpson> copy = new ArrayList<>(simpsons);
+        for(int i = 1; i <= results.size(); i++) {
+            long count = Long.MAX_VALUE;
+            Simpson currentMin = null;
+            for (Simpson simpson :
+                    copy) {
+                if(simpson.getPair().getLeft() == i){
+                    if(simpson.getCount() < count){
+                        if(currentMin != null & simpsons.contains(currentMin))
+                            simpsons.remove(currentMin);
+                        count = simpson.getCount();
+                        currentMin = simpson;
+                    }
+                    else simpsons.remove(simpson);
+                }
+            }
+        }
     }
 }
