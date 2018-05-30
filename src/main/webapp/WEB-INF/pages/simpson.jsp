@@ -19,7 +19,7 @@
                 <ul class="list-group">
                     <c:forEach items="${results}" var="result">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            ${result.getKey()}
+                            ${result.getKey().getLeft()}
                             <span class="badge badge-primary badge-pill">${result.getValue()}</span>
                         </li>
                     </c:forEach>
