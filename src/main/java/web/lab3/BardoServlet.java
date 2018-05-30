@@ -16,6 +16,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import static java.util.Comparator.comparing;
+import static java.util.Comparator.reverseOrder;
+import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
 
 
@@ -28,11 +31,13 @@ public class BardoServlet extends HttpServlet {
         List<Bardo> resultsList =  bardoProcess.getBardoList();
         Map<String, Long> results = resultsList.stream()
                 .map(result -> new AbstractMap.SimpleEntry<>(alternativeDao.findById(result.getIdAlt()).getName(), result.getAWeight()))
+                .sorted(comparing(Map.Entry::getValue, reverseOrder()))
                 .collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
-        List<Bardo> winnersList = bardoProcess.getWinner();
-        Map<String, Long> winners = winnersList.stream()
-                .map(result -> new AbstractMap.SimpleEntry<>(alternativeDao.findById(result.getIdAlt()).getName(), result.getAWeight()))
-                .collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+
+        List<String> winners = bardoProcess.getWinner().stream()
+                .map(b -> alternativeDao.findById(b.getIdAlt()).getName())
+                .collect(toList());
+
         req.setAttribute("results", results);
         req.setAttribute("winners", winners);
         req.getRequestDispatcher("/WEB-INF/pages/bardo.jsp").forward(req, resp);

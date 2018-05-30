@@ -40,7 +40,7 @@
                 <tbody>
                 <c:forEach items="${winners}" var="winner">
                     <tr>
-                        <td>${winner.key}</td>
+                        <td>${winner}</td>
                     </tr>
                 </c:forEach></tbody>
             </table>
