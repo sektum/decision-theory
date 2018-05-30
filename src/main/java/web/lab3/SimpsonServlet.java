@@ -55,6 +55,7 @@ public class SimpsonServlet extends HttpServlet {
         return results.entrySet().stream()
                 .filter(e -> e.getValue().equals(bestCount))
                 .map(e -> e.getKey().getLeft())
+                .distinct()
                 .collect(toList());
     }
 }
