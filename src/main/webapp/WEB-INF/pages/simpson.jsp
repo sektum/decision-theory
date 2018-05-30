@@ -19,12 +19,31 @@
                 <ul class="list-group">
                     <c:forEach items="${results}" var="result">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            ${result.getPair()}
-                            <span class="badge badge-primary badge-pill">${result.getCount()}</span>
+                            ${result.getKey()}
+                            <span class="badge badge-primary badge-pill">${result.getValue()}</span>
                         </li>
                     </c:forEach>
                 </ul>
             </c:if>
+        </div>
+    </div>
+</div>
+<div class="container" margin-top="20px">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <table class="table">
+                <thead class="thead-light">
+                <tr>
+                    <th>Winner(s)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${winners}" var="winner">
+                    <tr>
+                        <td>${winner}</td>
+                    </tr>
+                </c:forEach></tbody>
+            </table>
         </div>
     </div>
 </div>
