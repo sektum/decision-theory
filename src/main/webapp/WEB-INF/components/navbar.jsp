@@ -37,7 +37,7 @@
                     Лаба 3
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/bardo">Оценка Бардо</a>
+                    <a class="dropdown-item" href="/bardo">Оценка Борда</a>
                     <a class="dropdown-item" href="/simpson">Оценка Симпсона</a>
                 </div>
             </li>
